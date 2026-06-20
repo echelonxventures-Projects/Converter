@@ -1,0 +1,96 @@
+{
+  "theme": "LIGHT",
+  "archetype": "4 (Swiss & High-Contrast)",
+  "emotional_tone": "Professional, ultra-efficient, no-nonsense, precise, archival yet modern",
+  "typography": {
+    "heading_font": "Cormorant Garamond",
+    "body_font": "IBM Plex Mono",
+    "pairing_rationale": "An 'Old Money Tech' aesthetic. The high-end serif gives established trust and archival quality to file handling, while the sterile monospace font provides a feeling of data processing, precision, and technical utility.",
+    "hierarchy": {
+      "h1": "text-5xl sm:text-6xl font-serif tracking-tight leading-none text-stone-950",
+      "h2": "text-3xl sm:text-4xl font-serif tracking-tight leading-none text-stone-950",
+      "h3": "text-xl sm:text-2xl font-serif tracking-tight text-stone-950",
+      "h4": "text-lg font-mono tracking-tight text-stone-950",
+      "body": "text-base font-mono leading-relaxed text-stone-700",
+      "small_labels": "text-xs font-mono uppercase tracking-[0.2em] text-stone-500",
+      "button_text": "text-sm font-mono uppercase tracking-widest"
+    }
+  },
+  "colors": {
+    "background": {
+      "base": "bg-stone-50",
+      "card": "bg-white",
+      "nav": "bg-white/90 backdrop-blur-md"
+    },
+    "text": {
+      "primary": "text-stone-950",
+      "secondary": "text-stone-500",
+      "accent": "text-[#FF3B30]"
+    },
+    "border": {
+      "default": "border-stone-200",
+      "focus": "border-stone-950"
+    },
+    "primary_action": {
+      "default": "bg-stone-950 text-white",
+      "hover": "hover:bg-stone-800 hover:text-white",
+      "active": "active:bg-stone-900"
+    },
+    "secondary_action": {
+      "default": "bg-transparent text-stone-950 border border-stone-200",
+      "hover": "hover:border-stone-950 hover:bg-stone-50",
+      "active": "active:bg-stone-100"
+    },
+    "destructive_action": {
+      "default": "bg-[#FF3B30] text-white",
+      "hover": "hover:bg-[#E0332A] text-white"
+    },
+    "rationale": "Stark off-white base with deep stone-950 for structural lines. Electric Blaze (#FF3B30) used sparingly for warnings, active states, or destructive actions (like deleting a file)."
+  },
+  "layout": {
+    "spacing_system": "Generous Spacing Philosophy. Use p-6, p-8, and p-12 extensively. Containers with borders must have internal padding (p-8).",
+    "grid_strategy": "The 'Control Room' Grid for the dashboard. Use border-collapse style layouts with visible 1px borders between grid items (border-r border-b border-stone-200).",
+    "border_radius": "rounded-none. Sharp edges everywhere to reinforce the utilitarian, precision tool aesthetic.",
+    "alignment": "Left-align paragraphs, inputs, and dense content. Center align hero text only if it balances the stark architecture."
+  },
+  "components": {
+    "buttons": "Sharp corners (rounded-none). Monospace uppercase text. 1px solid border for secondary. No shadow.",
+    "cards": "Flat background (bg-white), 1px subtle border (border-stone-200), NO shadow. On hover: slightly darken border to border-stone-400.",
+    "inputs_and_forms": "Shadcn components heavily customized to rounded-none. 1px border-stone-200. Focus state: border-stone-950 ring-0. Use IBM Plex Mono for input values.",
+    "file_upload_zone": "Massive padding (p-20). Dashed 2px border (border-dashed border-stone-300). Background stone-50. On drag over: border-stone-950 bg-stone-100.",
+    "navigation": "Sticky top nav. Solid bottom border (border-b border-stone-200). Contains brand logo, links, and primary CTA.",
+    "tables": "Shadcn Table. Flat, no outer shadow. Monospace data cells for a technical readout feel."
+  },
+  "motion": {
+    "philosophy": "Fast, mechanical, purposeful.",
+    "transitions": "transition-all duration-150 ease-out",
+    "hover_effects": "Color shifts and border darkening. No bouncing or scaling."
+  },
+  "icons_and_assets": {
+    "icon_library": "@phosphor-icons/react (Duotone weight for marketing, Regular/Bold for dashboard UI)",
+    "image_urls": {
+      "hero_abstract": {
+        "url": "https://images.pexels.com/photos/11831530/pexels-photo-11831530.jpeg",
+        "description": "Close-up of a concrete Brutalist building showcasing geometric modern architecture. Use as a large side graphic or a textured background panel with heavy opacity reduction."
+      },
+      "dashboard_texture": {
+        "url": "https://images.pexels.com/photos/5506216/pexels-photo-5506216.jpeg",
+        "description": "Textured white paper background. Can be used as a subtle background pattern for the file upload zone or empty states."
+      },
+      "history_empty_state": {
+        "url": "https://images.pexels.com/photos/12485504/pexels-photo-12485504.jpeg",
+        "description": "Vintage metal filing cabinets. Use in the user dashboard history empty state to reinforce the archival/filing theme."
+      }
+    }
+  },
+  "testing": {
+    "requirements": "All interactive and key informational elements MUST include a `data-testid` attribute. Convention: kebab-case, role-based. Example: data-testid='upload-file-button'."
+  },
+  "instructions_to_main_agent": [
+    "Ensure all HTML/React components use `rounded-none` to maintain the strict, sharp aesthetic.",
+    "Implement the font pairing exactly: Cormorant Garamond for headings, IBM Plex Mono for all other text.",
+    "The file upload zone is the most critical UI element. Make it massive, with clear dashed borders and monospace instructions.",
+    "Do not use card shadows anywhere. Rely strictly on 1px borders (`border-stone-200`) for structural separation.",
+    "In the dashboard, use a visible grid structure (`border-r`, `border-b`) to organize recent conversions and remaining credits like a control room."
+  ]
+}
