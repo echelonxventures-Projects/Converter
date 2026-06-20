@@ -2,114 +2,243 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    margin: 0;
-    font-family:
-        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+/* FileMorph — Old Money Tech: Cormorant Garamond + IBM Plex Mono */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap");
 
-code {
-    font-family:
-        source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+:root {
+    --bg: #fafaf9; /* stone-50 */
+    --card: #ffffff;
+    --ink: #0c0a09; /* stone-950 */
+    --ink-soft: #44403c; /* stone-700 */
+    --line: #e7e5e4; /* stone-200 */
+    --muted: #78716c; /* stone-500 */
+    --accent: #ff3b30; /* electric blaze */
 }
 
 @layer base {
     :root {
-        --background: 0 0% 100%;
-        --foreground: 0 0% 3.9%;
+        --background: 60 9% 98%;
+        --foreground: 24 10% 4%;
         --card: 0 0% 100%;
-        --card-foreground: 0 0% 3.9%;
+        --card-foreground: 24 10% 4%;
         --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 3.9%;
-        --primary: 0 0% 9%;
-        --primary-foreground: 0 0% 98%;
-        --secondary: 0 0% 96.1%;
-        --secondary-foreground: 0 0% 9%;
-        --muted: 0 0% 96.1%;
-        --muted-foreground: 0 0% 45.1%;
-        --accent: 0 0% 96.1%;
-        --accent-foreground: 0 0% 9%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 89.8%;
-        --input: 0 0% 89.8%;
-        --ring: 0 0% 3.9%;
-        --chart-1: 12 76% 61%;
-        --chart-2: 173 58% 39%;
-        --chart-3: 197 37% 24%;
-        --chart-4: 43 74% 66%;
-        --chart-5: 27 87% 67%;
-        --radius: 0.5rem;
-    }
-    .dark {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 0 0% 98%;
-        --primary-foreground: 0 0% 9%;
-        --secondary: 0 0% 14.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 63.9%;
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 14.9%;
-        --input: 0 0% 14.9%;
-        --ring: 0 0% 83.1%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
+        --popover-foreground: 24 10% 4%;
+        --primary: 24 10% 4%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 60 5% 96%;
+        --secondary-foreground: 24 10% 4%;
+        --muted: 60 5% 96%;
+        --muted-foreground: 25 5% 45%;
+        --accent: 60 5% 96%;
+        --accent-foreground: 24 10% 4%;
+        --destructive: 4 100% 59%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 20 6% 90%;
+        --input: 20 6% 90%;
+        --ring: 24 10% 4%;
+        --radius: 0rem;
     }
 }
 
-@layer base {
-    * {
-        @apply border-border;
+* {
+    border-color: hsl(var(--border));
+}
+
+html,
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    -webkit-font-smoothing: antialiased;
+}
+
+.font-serif {
+    font-family: "Cormorant Garamond", "Times New Roman", serif !important;
+}
+.font-mono {
+    font-family: "IBM Plex Mono", monospace !important;
+}
+
+.label-eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* Sharp edges everywhere */
+.fm-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+}
+.fm-card:hover {
+    border-color: #a8a29e;
+}
+
+.fm-input {
+    background: #ffffff;
+    border: 1px solid var(--line);
+    padding: 0.85rem 1rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.95rem;
+    width: 100%;
+    transition: border-color 150ms ease-out;
+}
+.fm-input:focus {
+    outline: none;
+    border-color: var(--ink);
+}
+
+.fm-btn {
+    font-family: "IBM Plex Mono", monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.78rem;
+    padding: 0.85rem 1.5rem;
+    cursor: pointer;
+    transition: all 150ms ease-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.fm-btn-primary {
+    background: var(--ink);
+    color: white;
+    border: 1px solid var(--ink);
+}
+.fm-btn-primary:hover {
+    background: #292524;
+}
+.fm-btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+}
+.fm-btn-secondary:hover {
+    border-color: var(--ink);
+    background: #f5f5f4;
+}
+.fm-btn-danger {
+    background: var(--accent);
+    color: white;
+    border: 1px solid var(--accent);
+}
+.fm-btn-danger:hover {
+    background: #e0332a;
+}
+
+.fm-dropzone {
+    border: 2px dashed #d6d3d1;
+    background: #fafaf9;
+    padding: 4rem 2rem;
+    text-align: center;
+    transition: all 150ms ease-out;
+    cursor: pointer;
+}
+.fm-dropzone:hover,
+.fm-dropzone.active {
+    border-color: var(--ink);
+    background: #f5f5f4;
+}
+
+/* control room grid */
+.fm-grid {
+    display: grid;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+}
+.fm-grid > * {
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 1.5rem;
+}
+
+/* Marquee */
+.fm-marquee {
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--ink);
+    color: white;
+}
+.fm-marquee-track {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: marq 38s linear infinite;
+    padding: 0.6rem 0;
+}
+.fm-marquee-track span {
+    padding: 0 2rem;
+    font-family: "IBM Plex Mono", monospace;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+}
+.fm-marquee-track span::after {
+    content: "•";
+    margin-left: 2rem;
+    color: var(--accent);
+}
+@keyframes marq {
+    from {
+        transform: translateX(0);
     }
-    body {
-        @apply bg-background text-foreground;
+    to {
+        transform: translateX(-50%);
     }
 }
 
-@layer base {
-    [data-debug-wrapper="true"] {
-        display: contents !important;
+.fade-in {
+    animation: fadein 600ms ease-out;
+}
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-    [data-debug-wrapper="true"] > * {
-        margin-left: inherit;
-        margin-right: inherit;
-        margin-top: inherit;
-        margin-bottom: inherit;
-        padding-left: inherit;
-        padding-right: inherit;
-        padding-top: inherit;
-        padding-bottom: inherit;
-        column-gap: inherit;
-        row-gap: inherit;
-        gap: inherit;
-        border-left-width: inherit;
-        border-right-width: inherit;
-        border-top-width: inherit;
-        border-bottom-width: inherit;
-        border-left-style: inherit;
-        border-right-style: inherit;
-        border-top-style: inherit;
-        border-bottom-style: inherit;
-        border-left-color: inherit;
-        border-right-color: inherit;
-        border-top-color: inherit;
-        border-bottom-color: inherit;
-    }
+/* Range sliders */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 1px;
+    background: var(--line);
+    outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: var(--ink);
+    cursor: pointer;
+    border-radius: 0;
+}
+input[type="range"]::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: var(--ink);
+    cursor: pointer;
+    border-radius: 0;
+    border: none;
+}
+
+::selection {
+    background: var(--ink);
+    color: white;
+}
+
+.serial-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
 }
